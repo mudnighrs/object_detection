@@ -109,7 +109,7 @@ After pretraining, the encoder is frozen and a linear classifier is trained on t
 Loss: CrossEntropyLoss
 
 Frozen Encoder: Encoder weights are frozen
-Linear Head: A simple linear layer (2048 → 100) added on top of the encoder for classification
+Linear Head: A simple linear layer  added on top of the encoder for classification
 Loss: Cross-entropy loss
 Optimizer: Adam (for linear head only)
 Training: Linear classifier trained on labeled data for 5 epochs.
