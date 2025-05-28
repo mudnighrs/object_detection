@@ -14,7 +14,7 @@ unzipped_dataset/
  └── train.X4/
  └── val.X/
  └── Labels.json
-
+```
 
  `train.X*` directories contain unlabeled images for self-supervised training.
  `val.X` contains labeled validation data .
