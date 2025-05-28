@@ -3,8 +3,17 @@
 
 This project involves using the following dataset (stored in zip file) :
 SSL dataset:-  https://drive.google.com/file/d/1MdmkhdkhNjXM_PZDaZ9kRuoaS80vsZ8_/view?usp=drivesdk
+After unzipping, the expected directory structure is:
 
-pre> <code>```text unzipped_dataset/ └── ssl_dataset/ ├── train.X1/ ├── train.X2/ ├── train.X3/ ├── train.X4/ ├── val.X/ └── Labels.json ```</code> </pre>
+```
+unzipped_dataset/
+└── ssl_dataset/
+ └── train.X1/
+ └── train.X2/
+ └── train.X3/
+ └── train.X4/
+ └── val.X/
+ └── Labels.json
 
 
  `train.X*` directories contain unlabeled images for self-supervised training.
