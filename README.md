@@ -72,7 +72,7 @@ This project implements a Self-Supervised Learning (SSL) pipeline using a masked
 - Dataset preparation and loading
 - Pretraining with masked image modeling
 - Linear evaluation on labeled data
-- Metric evaluation (accuracy, F1-score, confusion matrix)
+- Metric evaluation (accuracy, F1-score)
 
 ## Preprocessing and Augmentation
 
@@ -90,17 +90,31 @@ Linear Head: A simple linear classifier used for evaluation
 
 Images are randomly masked and passed through the encoder. The decoder attempts to reconstruct the original image.
 
-Loss: Mean Squared Error (MSE) between original and reconstructed images.
+Masking Strategy: Randomly masks 75% of the image patches (non-learnable masking).
+
+Forward Pass:
+Masked image → Encoder → Decoder → Reconstructed image.
+Loss:
+Mean Squared Error (MSE) between original and reconstructed image.
+
+Optimization:
+Adam optimizer on encoder and decoder weights.
+
+Note: Pretraining was run for 4 epochs, then stopped.
 
 ## Linear Evaluation
 
 After pretraining, the encoder is frozen and a linear classifier is trained on the extracted features from the training dataset.
 Loss: CrossEntropyLoss
 
+Frozen Encoder: Encoder weights are frozen.
+Linear Head: A simple linear layer (2048 → 100) added on top of the encoder for classification.
+Loss: Cross-entropy loss.
+Optimizer: Adam (for linear head only).
+Training: Linear classifier trained on labeled data for 5 epochs.
+Tracking: Training loss logged and plotted per epoch.
+
 ## Results:
 Accuracy: 0.0810,
 F1-score: 0.0674
 
-Model trained for 4 epochs, stopped at the 5th.
-Plots training loss per epoch.
-Prints evaluation metrics on validation set.
