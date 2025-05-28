@@ -39,8 +39,7 @@ This project implements a simplified **SimCLR** pipeline using PyTorch for self-
 ## Training Pipeline Overview
 
 1. Unzipping the Dataset
-with zipfile.ZipFile("/content/drive/MyDrive/ssl_dataset.zip", 'r') as zip_ref:
-    zip_ref.extractall("unzipped_dataset")
+
 2. SimCLR Transformations
 Applies a combination of random cropping, flipping, color jitter, grayscale, blur, and tensor conversion.
 
